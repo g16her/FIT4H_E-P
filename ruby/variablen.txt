@@ -16,3 +16,5 @@ Ganze Zahl (Integer, Fixnum)
 
 Float (Kommazahl)
 	komma_zahl =13.44
+
+	
