@@ -1,6 +1,6 @@
-
 Methoden:
 a. definieren Sie eine Methode say_hello mit dem Argument name. Das Ergebnis des Aufrufs ist dann die Ausgabe: 'Ich bin Ludwig'
+
 b. rufen Sie die Methode mit verschiedenen namen auf
 c. puts soll nun aus der Methode entfernt werden
 d. aendern sie die Methode, so dass sie einen Statndarparmameter health entgegennimmt. Die Ausgabe lautet dann: 'Ich bin Ludwig mit einem Wert von 100'

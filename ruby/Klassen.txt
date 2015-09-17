@@ -23,3 +23,16 @@ Konstruktor:
 Instanzvariable:
 	Die Instanzvariable einer Klasse gilt in jeder Methode der Klasse. Während also ptitile nur innnerhalb der Methode initialize gilt, kann die Instanzvariable @title auch in jeder anderen Methode der Klasse Movie verwendet werden.
 	Eine andere Bezeichnung für Instanzvariable ist Attribut oder Eigenschaft.
+
+	Eigenschaften:
+		Instanzvariablen sind in dne meisten Fällen auch Eigenschaften, die das Objekt charakterisieren 
+		Wenn ich eine Eigenschaft ausgeben möchte(von außen auf die Eiegenschaft zugreifen), dann muss ich eine Methode schreiben, die genau wie die Eigenschaft heißt
+		bsp.:
+		Instanzvariable: @title
+		Eigenschaft: title
+		Reader-Methode
+			def title
+				@title
+			end
+		Nun kann ich mit dem Objekt auf die Eigenschaft title zugreifen:
+			object1.title
