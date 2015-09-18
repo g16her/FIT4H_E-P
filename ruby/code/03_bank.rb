@@ -55,8 +55,8 @@ end
 
 #Legen Sie das Objekt obj an, rufen Sie die entsprechenden Get-Methoden für die Dateneingabe auf, erzeugen Sie die Kontrollausgabe.
 
-obj = Customer.new("12345677", "Sommer")
-obj.set_firstname("Theo")
-obj.set_street("Luluweg 11")
-obj.set_city("Berlin")
+obj = Customer.new("12345677", "Alfred")
+obj.set_firstname("Albert")
+obj.set_street("")
+obj.set_city("Hamburg")
 puts obj.print_address
