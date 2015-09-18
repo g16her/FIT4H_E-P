@@ -1,20 +1,11 @@
 class Movie
-	def initialize(ptitle, prank=0)
+		attr_accessor :title
+		def initialize(ptitle, prank=0)
 		@title = ptitle.capitalize
 		@rank  = prank		
 	end 
-	#def title
-	#		@title
-	#end
-	attr_reader :title
-
-	#def title=(ptitle)
-	#		@title = ptitle
-	#end
-	attr_writer :title
 	def thumbs_up
 		@rank +=1
-		#@rank = @rank +1
 	end
 		def thumbs_down
 			@rank -=1
@@ -25,14 +16,17 @@ class Movie
 end
 
 movie1 = Movie.new('NinjaTurtles',4)
-puts movie1.to_s
-movie1.thumbs_up
-puts movie1.to_s
+movie2 = Movie.new('45 years',8)
+movie3 = Movie.new('8 mm',10)
 
-puts movie1.title
+movies = [movie1, movie2,movie3]
+movies.each do |movie|
+	movie.thumbs_up
+	movie.thumbs_down
+	puts movie
+end
 
-movie1.title ="NinjaPurples"
-puts movie1
+
 
 
 

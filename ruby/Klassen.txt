@@ -30,9 +30,22 @@ Instanzvariable:
 		bsp.:
 		Instanzvariable: @title
 		Eigenschaft: title
-		Reader-Methode
+		Reader-Methode: (Getter-Methode)
 			def title
 				@title
 			end
-		Nun kann ich mit dem Objekt auf die Eigenschaft title zugreifen:
+			Kurzform (Shortcut): attr_reader :title 		Nun kann ich mit dem Objekt auf die Eigenschaft title zugreifen:
 			object1.title
+
+
+	Möchte ich von außen auf die Eigenschaft title zugregriffen werden, dann ist ein WRITTER nötig.
+	Writer-Methode: (Setter-Methode)
+		def title=(parameter)
+			@title = paramter.capitalize
+		end
+		Kurzform: attr_writer :title
+	Nun kann für diese Eigenschaft ein neuer Wert zugewiesen werden object1.title = "Neuer Wert"
+
+
+	kurz-kurz-From: wenn sowohl ein Reader als auch ein Writer benötig wir: 
+	attr_accessor :title
