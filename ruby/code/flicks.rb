@@ -1,4 +1,8 @@
 class Movie
+	def initialize(name)
+			@name = name
+	end 
+
 		attr_accessor :title
 		def initialize(ptitle, prank=0)
 		@title = ptitle.capitalize
