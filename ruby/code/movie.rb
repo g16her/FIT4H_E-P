@@ -6,7 +6,13 @@ class Movie
 		@title = ptitle.capitalize
 		@rank  = prank		
 	end 
-	def thumbs_up
+	def hit?
+			@rank >= 10
+		end
+		def status
+			hit? ? "Hit" : "Flop"
+		end
+		def thumbs_up
 		@rank +=1
 	end
 		def thumbs_down
