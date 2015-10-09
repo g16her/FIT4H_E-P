@@ -1,6 +1,22 @@
 # 1.  Klasse Kunde
+class Kunde
+
+	attr_accessor : name
+	attr_writer : adresse
+
+
+
+
+
 # 1a. Legen Sie eine Eigenschaft name und adresse in der Klasse Kunde an. Für die Eigenschaft name gibt es einen Lese- und Schreibzugriff, fuer die Eigenschaft adresse einen Schreibzugriff. 
-# b. Die Eigenschaft name enthält den Vor- und Zunamen des Kunden. Diese Eigenschaft wird beim Anlegen des Objektes übergeben. Schreiben Sie den entsprechenden Konstruktor. 
+def initialize(name, adresse)
+		@name = []
+		@adresse = adresse
+
+	end
+end
+# b. Die Eigenschaft name enthält den Vor- und Zunamen des Kunden. Diese Eigenschaft wird beim Anlegen des Objektes übergeben. Schreiben Sie den entsprechenden Konstruktor.
+ 
 # c. Erzeugen Sie ein Objekt mit dem Namen 'kunde1' und dem Initialwert: 'Theo Sommer' 
 # d. Ändern Sie die Eigenschaft 'name' des Objektes in: 'Theo Sonnenschein' 
 # e. Schreiben Sie den Befehl, der den Namen auf der Konsole ausgibt. 
