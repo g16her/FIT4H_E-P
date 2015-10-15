@@ -1,3 +1,4 @@
+epro
 # 2. Worte
 # a. Bilde ein Array mit den Worten: Pflaume, Bauschaum, Auster
 # b. Alle Element, die den String aus enthalten sollen ausgegeben werden.
