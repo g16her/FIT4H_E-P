@@ -1,0 +1,11 @@
+
+
+<h1>Events<h1>
+<h2>listing generated at: <%= Time.now%> </h2>
+<p>
+	<ul>
+		<% @events.each do |event| %>
+			<li> <%= event %> </li>
+		<% end %>
+	</ul>
+</p>
