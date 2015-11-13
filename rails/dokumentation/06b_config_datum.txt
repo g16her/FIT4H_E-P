@@ -1,0 +1,5 @@
+Der Server orientiert sich beim Starten an einem amerikanischen Datum- und Währungsstandard
+Möchte ich alternative Standards definieren, kann ich das mit Dateien im config/initializers-Ordnern tun
+Diese Dateien werden beim Start des Server geladen
+
+Beispiel: Deutsches Datumsformat
