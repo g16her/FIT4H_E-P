@@ -1,0 +1,26 @@
+<h1>Movies</h1>
+<p>
+	Es <%= @movies.count == 1 ? " ist " : " sind " %> <%= "#{pluralize(@movies.count, "Movie")}" %> vorhanden.
+</p>
+<table>
+	<tr>
+		<th>Titel</th>
+		<th>Beschreibung</th>
+		<th>Website</th>
+		<th>Rating</th>
+		<th>Erscheinungsdatum</th>
+		<th>Umsatz</th>
+		<th>Pledging</th>
+	</tr>
+	<% @movies.each do |movie| %>
+		<tr>
+			<td><%= movie.title %></td>
+			<td><%= truncate(movie.description, length: 40) %></td>
+			<td><%= movie.website %></td>
+			<td><%= movie.rating %></td>
+			<td><%= time_ago_in_words(movie.release) %></td>
+			<td><%= format_total_gross(movie) %></td>
+			<td><%= movie.pledging %></td>
+		</tr>
+	<% end %>
+</table>

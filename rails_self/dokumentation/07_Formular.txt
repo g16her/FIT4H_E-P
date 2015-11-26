@@ -1,0 +1,9 @@
+Vorgänge:
+1.  Neuanlegen eines Events
+	Aufruf der new Action beim Formular öffnen creat-Action beim Speichern des Formulars
+
+	Routing:
+		new_event_path - Methode
+		event_path, method: post
+
+2. Editieren eines Items
