@@ -1,0 +1,60 @@
+<%= form_for(@event) do |f| %>
+	<div class="row">
+		<div class=" medium-2 colums">
+				<%= f.label :name %>:
+	</div>
+	<div class="medium-10 columns">
+				<%= f.text_field :name %>
+	</div>
+	</div>
+
+	<div class="row">
+		<div class=" medium-2 colums">
+			<%= f.label :description %>
+	</div>
+	<div class="medium-10 columns">
+		<%= f.text_area :description %>
+	</div>
+	</div>
+
+	<div class="row">
+		<div class=" medium-2 colums">
+			<%= f.label :location %>
+	</div>
+	<div class="medium-10 columns">
+
+		<%= f.text_field :location %>
+	</div>
+	</div>
+
+	<div class="row">
+		<div class=" medium-2 colums">
+				<%= f.label :price %>
+	</div>
+	<div class="medium-10 columns">
+		<%= f.number_field :price %>
+	</div>
+	</div>
+
+	<div class="row">
+		<div class=" medium-2 colums"> </div>
+				<%=f.label :start_at %>
+	</div>
+	
+	<div class="medium-10 columns">
+		<%=f.datetime_select :start_at %>
+	</div>
+	</div>
+
+	<div class="medium-2 columns">
+		<%= f.submit %>
+	</div>
+		<div class="medium-10 columns">
+	</div>
+		
+	</div>
+
+		
+	
+
+<% end %>

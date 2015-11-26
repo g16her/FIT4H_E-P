@@ -1,7 +1,0 @@
-Der Server  orierntiert sich beim Starten an einem amerikanischnen Datums- und Währungsstandard.
-Möchte ich alternative Standards definieren, kann ich das mit Dateien im config/initializers-Ordner tun.
-Diese Dateien werden beim Start des Server geladen.
-
-Beispiel: Deutsches Datumsformat
-config/initializerstime_formats.rb
-	Time::DATE_FORMATS[:default] = "%d. %b %y %T"

@@ -1,0 +1,60 @@
+<%= form_for(@movies) do |f| %>
+	<div class="row">
+		<div class=" medium-2 colums">
+				<%= f.label :title%>
+	</div>
+	<div class="medium-10 columns">
+				<%= f.text_field :title %>
+	</div>
+	</div>
+
+	<div class="row">
+		<div class=" medium-2 colums">
+			<%= f.label :description %>
+	</div>
+	<div class="medium-10 columns">
+		<%= f.text_area :description %>
+	</div>
+	</div>
+
+	<div class="row">
+		<div class=" medium-2 colums">
+			<%= f.label :rating %>
+	</div>
+	<div class="medium-10 columns">
+
+		<%= f.text_field :rating %>
+	</div>
+	</div>
+
+	<div class="row">
+		<div class=" medium-2 colums">
+				<%= f.label :website %>
+	</div>
+	<div class="medium-10 columns">
+		<%= f.text_field :website %>
+	</div>
+	</div>
+
+	<div class="row">
+		<div class=" medium-2 colums"> </div>
+				<%=f.label :release%>
+	</div>
+	
+	<div class="medium-10 columns">
+		<%=f.text_field :release %>
+	</div>
+	</div>
+
+	<div class="medium-2 columns">
+		
+	</div>
+		<div class="medium-10 columns">
+	</div>
+		
+	</div>
+
+		
+	
+
+<% end %>
