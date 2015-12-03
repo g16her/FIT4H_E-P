@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
 
+	validates :name, presence: true
 	def free?
 		self.price.blank? || self.price.zero? 
 	end
