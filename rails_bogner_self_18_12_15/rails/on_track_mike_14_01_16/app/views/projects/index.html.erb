@@ -1,0 +1,30 @@
+<table>
+	<thead>
+	<tr>
+		<th>Title</th>
+		<th>description</th>	
+		<th>start_date</th>	
+		<th>Title</th>
+	</tr>
+			<% @projects.each do |f| %>
+	<td>
+			<%= f.title %>
+	</td>
+	<td>
+			<%= f.description %>
+	</td>
+	<td>
+			<%= f.start_date %>
+	</td>
+
+
+<td><%= link_to "Show", project_path(f.id) %></td>
+<td><%= link_to "Edit", edit_project_path(f.id) %></td>
+<td><%= link_to "Delete", project_path(f.id), method: :delete, data: {confirm: "Sicher????"} %></td>
+</tr>
+
+<% end %>
+
+</table>
+
+<%= link_to 'neues Project anlegen', new_project_path %>
