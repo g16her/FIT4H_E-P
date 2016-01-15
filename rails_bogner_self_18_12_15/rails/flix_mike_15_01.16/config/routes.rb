@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
-  root "events#index"
+  root"flix#index"
+
   get 'signup' => "users#new"
-  get 'signin' => "sessions#new"
-  get 'logout' => "sessions#destroy"
-  
   resources :sessions
   resources :users
-
-
   
-  resources :events do
-    resources :registrations
-    collection do
-      get "showall"
+  resources :flix do
+    resources :reviews
+    collection do     #für alle datensätze anwenden (movies)
+      get "daten"
+    end
+    member do         #für einen datensatz verwenden (movie(id))
+
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
@@ -22,7 +21,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  #   get 'daten' => 'flix#daten'    ########## So gehts auch!!!!!!!!!!!!!!!!!
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

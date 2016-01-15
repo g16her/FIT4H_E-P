@@ -6,13 +6,23 @@
   </ul>
   <div class="top-bar-section">
     <ul>
-      <li> </li>
+      <li> <%= link_to "Events", events_path %> </li>
+      <li> <%= link_to "User", users_path %> </li>
     </ul>
 
     <ul> 
     		<div class="right">
-    			<li class ="active"> <%= link_to "Account neu", signup_path, 
+
+          <% if current_user %>
+          <li> <%= link_to "logout", logout_path %> </li>
+          <li> <%= link_to current_user.name, edit_user_path(current_user.id) %> </li> 
+          <%else %>
+          <li class ="active"> <%= link_to "Account neu", signup_path,class: "button"%> </li>
+    			
+          <li class ="active"> <%= link_to "Loginn", new_session_path, 
     			class: "button"%> </li>
+          <%end %>
   </div>
 </ul>
+</div>
 </nav>
