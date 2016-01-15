@@ -1,0 +1,26 @@
+HALLO
+
+<h1>Ausgabe</h1>
+
+	<table width="100%">
+		<tr>
+			<th>Name</th>
+			<th>Nachname</th>
+			<th>Anzahl</th>
+			<th>Beschreibung</th>
+			
+		</tr>
+		<% @authors.each do |author| %>
+			<tr>
+				<td><%= author.name %></td>
+				<td><%= author.nachname %></td>
+				<td><%= author.anzahl %></td>
+				<td><%= author.beschreibung %></td>
+				
+			
+			</tr>
+		<% end %>
+	</table>
+<p>
+
+</p>

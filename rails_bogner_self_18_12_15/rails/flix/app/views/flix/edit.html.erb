@@ -1,0 +1,93 @@
+<h1>Der Film <%= @movie.title %> wird bearbeiten!</h1>
+<%= form_for(@movie, as: :movie, method: :patch, url: flix_path(@movie)) do |f| %>
+	<% if @movie.errors.any? %>
+		<div class="panel">
+			<ul>
+				<% @movie.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :title %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.text_field :title %>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :rating %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.text_field	:rating %>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :total_gross %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.number_field :total_gross%>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :description %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.text_area :description %>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :released_on %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.datetime_select :released_on %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :poster_image_file %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.text_field :poster_image_file, placeholder:"gif,jpg dateiname" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :cast %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.text_area :cast %>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :director %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.text_field :director %>
+		</div>
+	</div>
+	<div class="row">
+		<div class=" medium-2 columns">
+			<%= f.label :duration %>
+		</div>
+		<div class=" medium-10 columns">
+			<%= f.time_select :duration %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="medium-2 columns"><%= f.submit %></div>
+		<div class="medium-10 columns>&nbsp;"></div>
+	</div>
+
+<% end %>
