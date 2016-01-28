@@ -1,0 +1,15 @@
+<%=  form_for( @project) do |f| %>
+
+	<%= f.label "Titel" %> <br>
+	<%= f.text_field :title %> <br>
+	
+	<%= f.label "Beschreibung" %> <br>
+	<%= f.text_area :description %> <br>
+	
+	<%= f.label "Beginn" %> <br>
+	<%= f.date_select :start_date%><br> <br>
+
+	<%= f.submit "Projekt anlegen"%><br>
+
+
+<% end %>
