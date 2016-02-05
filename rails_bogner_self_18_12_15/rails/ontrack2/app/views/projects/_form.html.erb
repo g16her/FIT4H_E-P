@@ -1,5 +1,6 @@
 <%=  form_for( @project) do |f| %>
-
+	
+	<%= render "errors" %> 
 	<%= f.label "Titel" %> <br>
 	<%= f.text_field :title %> <br>
 	
@@ -9,7 +10,19 @@
 	<%= f.label "Beginn" %> <br>
 	<%= f.date_select :start_date%><br> <br>
 
+
+	<% if request.path == "/projects/new"%>
+
 	<%= f.submit "Projekt anlegen"%><br>
+
+	<% else %>
+
+	<%= f.submit "Projekt aktualisieren" %> <br>
+
+	<% end %>
+
+
+
 
 
 <% end %>

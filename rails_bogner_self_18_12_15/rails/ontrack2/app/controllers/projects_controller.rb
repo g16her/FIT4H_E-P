@@ -1,13 +1,20 @@
 class ProjectsController < ApplicationController
 
-	before_action :set_project , only: [:edit , :show ,  :update] 
+	before_action :set_project , only: [:edit , :show ,  :update, :destroy] 
 	def create
 
-			if @project = Project.create( permitted_params )
+		@project = Project.new( permitted_params )
+			if @project.save
+				flash[ notice ] = "Project succsesfull)"
 		redirect_to root_path ## redirect (automatischer LINK!weißt automatisch der root path seite zu
 			else
 				render "new"
 			end
+	end
+
+	def destroy
+			@project.destroy
+			redirect_to root_path ## 
 	end
 
 	def edit 
@@ -34,7 +41,9 @@ class ProjectsController < ApplicationController
 
 	def update
 		if @project.update( permitted_params)
+		flash[ notice ] = "Project succsesfull)"
 		redirect_to project_path( @project.id)
+
 		else
 				render "edit"
 

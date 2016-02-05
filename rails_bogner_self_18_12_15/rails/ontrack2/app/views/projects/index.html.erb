@@ -2,6 +2,8 @@
 
 <hr> 
  <%= link_to "Neues Projekt anlegen", new_project_path %>
+ <%#= button_to "login", login_path %>
+
 <hr>
 
 <table border = "1" style=" width:100% ; border: 1px solid red;">
@@ -22,6 +24,7 @@
 	<td> <%= p.start_date %> </td>
 	<td> <%= link_to "details" , project_path( p.id)%> </td>
 	<td> <%= link_to "edit" , 	edit_project_path( p.id)%> </td>
+	<td> <%= link_to "löschen" , 	project_path( p.id) , method: :delete , data: { confirm: "Wirklich???"}%> </td>
 	<td>  </td>
 
 
