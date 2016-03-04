@@ -1,0 +1,23 @@
+<h1>Alle registrations für <%= @event.name %></h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Über</th>
+	</tr>
+	<% @registrations.each do |registration| %>
+	<tr>
+		<td><%= registration.user.name %></td>
+		<td><%= registration.user.email %></td>
+		<td><%= registration.how_heard %></td>
+		<td><%= link_to "<i class='fi-trash icon-red'></i>".html_safe, event_registration_path(@event.id, registration.id), method: :delete, data: {confirm: "Löschen?"} %></td> <!-- icon-red ist eine selbstgeschriebene Klasse in event.scss -->
+	</tr>
+	<% end %>
+</table>
+
+<ul class="button-group even-1">
+	<li><%= link_to "User <i class='fi-torso icon-white'></i>".html_safe, user_path(@current_user.id), class: "button"%>
+	<li><%= link_to "Back <i class='fi-arrow-left icon-white'></i>".html_safe, events_path, class: "button" %></li>
+	<li><%= link_to "Neu Registration <i class='fi-plus icon-white'></i>".html_safe, new_event_registration_path(@event.id), class: "button" %></li>
+</ul>

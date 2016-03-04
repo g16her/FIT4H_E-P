@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def require_admin
   	unless current_user.admin?
-  		redirect_to root_path
+  		redirect_to root_path, alert: "OPFER"
   		
   	end
   	
@@ -23,5 +23,10 @@ class ApplicationController < ActionController::Base
   	end
   end
 
+  def require_teamleiter
+    unless current_user.teamleiter? || current_user.admin?
+      redirect_to login_path, alert: "Kein Zugriff du bist kein TEAMLEITER"
+    end
+  end
 
 end
