@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160321085517) do
     t.decimal  "price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    
   end
 
 end

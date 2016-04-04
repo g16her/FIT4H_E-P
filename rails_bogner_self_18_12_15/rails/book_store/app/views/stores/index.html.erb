@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<div class'' >
+
+</div>
+
+<h4> Rails Book </h4>
+
+<div class >
+
+ </div>
+ <hr>
+    <% @products.each do |product| %>
+      <div class >
+        		<%= product.description %> 
+        		<p> <%= image_tag product.image_url, size:"100x100" %> </p>
+        		<%= product.title %> 
+        		<%= product.price %> 
+      
+    <% end %>
+  </hr>
+
+
+
+<br>
