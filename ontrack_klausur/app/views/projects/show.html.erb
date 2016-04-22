@@ -1,5 +1,6 @@
+	<p> ___________________________________Projekt_________________________________ </p> 
 <p id="notice"><%= notice %></p>
-
+	
 <p>
   <strong>Title:</strong>
   <%= @project.title %>
@@ -17,3 +18,50 @@
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+	<p> ___________________________________MITARBEITER__________________________________ </p> 
+<p> 
+	<strong>Employees:</strong>
+	<table>
+	<thead>
+		<tr>
+			<th>Vorname</th>
+      <th>Nachname</th>
+      <th>Username</th>
+        <th>Project</th>
+        <th>Show</th>
+				<th>Stunden </th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @employee.each do |f|%>
+			<tr>
+				<td><%= f.vorname %></td>
+        <td><%= f.nachname %></td>
+        <td><%= f.namekomplett %></td>
+        <td><%= f.project_id %></td> 
+
+        <td> 	<%= link_to 'show', project_employee_path(@project,f) %> </td> 
+			
+				
+
+			<!-- VERSUCH 9 --> 
+			 	<td><% form_for([@project, f]) do |t| %> </td>
+			 	<td> <button name='button' type='submit'> Senden</button> <td>
+
+        <td><%=  t.label :hours %> </td>
+        <td><%#= t.check_box WorkedHour::Möglichkeiten_Stunden, prompt: "Stunden auswählen"  %> </td>
+				<td><%= t.submit :hours%> <td>
+				
+			
+
+				<% end %> 
+			<%end%>
+
+
+			</tr>
+	<tbody>
+</table>
+
+

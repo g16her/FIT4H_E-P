@@ -1,0 +1,149 @@
+1.	Scaffold für employees mit den Tabellenspalten, vorname, nachname, username, project_id(integer)
+Rails g scaffold employee vorname nachname username project:references
+2.	Erstellen der Beziehungen zwischen Project und Employees; auf der Model-Seite, sodass eine 1:n Beziehung zwischen Employee und Project entsteht. Ein Project hat mehrere Mitarbeiter. Ein mitarbeiter arbeitet nur an einem Project. Für das Feld Nachname muss es eine Eingabe geben.
+
+In der employee.rb:  	belongs_to  :project
+			validates	:nachname, presence: :true
+
+In der project.rb: 	has_many  :emploees
+
+Gehört nicht zur Aufgabe, aber damit keine Fehler entstehen muss Folgendes angepasst werden:
+In der routes.rb:	resources: projects do
+					resources: employees
+			end
+
+Gehört nicht zur Aufgabe, aber damit keine Fehler entstehen muss Folgendes angepasst
+In der employees_controller.rb: 
+before_action	:set_project
+
+def index
+	@employees = @project.employees
+end
+
+private
+def set_project
+						@project = Project.find(params[:id])
+					End
+Links anpassen auf die verschatelte resource in employees/index.html.erb
+<%= link_to ‚show‘, project_employee_path(@project,emlpoyee) %>
+<%= link_to ‚edit‘, edit_project_employee_path(@project,emlpoyee) %>
+
+In der employees/_form.html.erb:
+form_for(@project, employee)
+
+
+
+
+
+
+
+3.	Erstellen sie im Model Employee einer Eigenschaft name, die den Vornamen und den Nachnamen des Users in der Form “Theo Sommer” ausgibt.
+
+Im Model employees.rb:	def name
+				         Self.vorname.capitalize + „“ + self.nachname.capitalize
+				end
+
+4.	Ergänzen sie die Tabelle Projects durch eine Spalte max_hours vom Typ integer, die die maximale Stundenzahl die für das Projekt aufgewendete Arbeitszeit ergibt.
+
+rails g migration AddFieldToProject max_hours:integer
+
+rake db:migrate
+
+5.	Schreiben sie eine seeds-datei mit dem Project: title: E-Commerce-App, description: Programmieren einer Webapplikation, start_date: heute, max_hours: 200 Die Employees Theo Somer und Peter Pan sind diesem Project zugeordnet.
+
+In der Datei db/seeds.rb:	
+Project.create(title: „E-Commerce-App“, description: „Programmieren einer Webapplikation”, start_time: Time.now, max_hours: 200)
+
+Employee.create(vorname: “Theo”, nachname: “Sommer”, project_id: 1)
+Employee.create(vorname: “Peter”, nachname: “Pan”, project_id: 1)
+
+Zum neu Aufsetzen der Datenbank: rake db:setup
+
+
+6.	Ein neues model worked_hours enthält die Spalten: project_id employee_id, hours. Alle vom Typ integer.
+
+rails g model worked_hours project_id:integer employee_id:integer hours:integer
+
+7.	Ein neuer Controller WorkedHours hat die Action create. Diese Action wird aufgerufen, wenn ein Mitarbeiter Arbeitsstunden für das Projekt dem er zugeordnet ist, geltend macht.
+
+rails g controller worked_hours
+
+
+
+
+
+
+8.	Auf der show-Seite des projekts werden die Mitarbeiter in einer Lise oder Tabelle aufgeführt.
+
+In der views/projects/show.html.erb:
+
+<p> 
+	<strong>Employees:</strong>
+	<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @employee.each do |f|%>
+			<tr>
+				<td><%=f.name %></td>
+			</tr>
+		<% end %>
+	<tbody>
+	<tabel>
+</p>
+
+In der controllers/projects_controller.rb: 	def show
+							@employee = @project.employees
+						end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9.	Auf der show-Seite des Projektes, wo die Mitarbeiter gelistet sind, soll hinter jedem Mitarbeiter eine Select-Box angezeigt werden, in der 1,2,3 … oder max. 8 Stunden whälbar sind. Ein Button hinter der SelectBox schickt die ausgewählte Stundenzahl mit der ProjektID und der EmployeeID zur Create-Action des Controllers worked_hours. Hier werden die daten in das Model worked_hours eingefügt.
+In der views/projects/show.html.erb:
+
+<p> 
+	<strong>Employees:</strong>
+	<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th> </th>
+			<th> </th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @employee.each do |f|%>
+			<tr>
+				<td><%=f.name %></td>
+				<%= form_tag([@project,]) %>
+			</tr>
+		<% end %>
+	<tbody>
+	<tabel>
+</p>
+
+
+10.	Auf der Show-Seite wird angezeigt:
+Bisher wurden für das Projekt xxx von yyy Stunden verbraucht. Es bleiben zzz Stunden. Xxx enthält die Summe aller für das Projekt aufgewendeten Stunden aus der Tabelle worked_hours. Yyy ist der Inhalt der Spalte max_hours aus der Projects-tabelle. Zzz ist die Differenz der beiden Spalten. Xxx und zzz sollten als Methode in dem Projects_Modell angelegt sein.
+

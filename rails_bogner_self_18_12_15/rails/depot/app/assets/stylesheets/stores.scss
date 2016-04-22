@@ -1,0 +1,46 @@
+// Place all the styles related to the stores controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h4 {
+	color: blue;
+}
+
+.links{
+	float: left;
+}
+
+header {
+height: 50px;
+background-color:  #00b300;
+h3 {
+	color: green;
+	text-align: center
+}
+
+}
+
+aside {
+	float: left;
+	background-color: green;
+	height: 100%;
+	width: 300px;
+
+	ul {
+	  list-style-type: none;
+	}
+
+}
+
+.blue {
+	color: blue;
+}
+
+.inhalt {
+	float: left;
+	hr { 
+    color: blue;
+    border-top: dotted 2px;
+	}
+
+}

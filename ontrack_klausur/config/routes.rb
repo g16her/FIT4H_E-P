@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  
+  get 'worked_hours/create'
+
   root 'projects#index'
-  resources :projects
+  resources :projects do
+    resources :employees    #employee ist dem Projekt untergeordnet
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

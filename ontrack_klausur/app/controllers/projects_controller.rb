@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_employee, only: [:show, :edit, :update, :destroy]
   # GET /projects
   # GET /projects.json
   def index
@@ -10,11 +10,13 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @employee = @project.employees ## damit er etwas mit employee anfangen kann
   end
 
   # GET /projects/new
   def new
     @project = Project.new
+    
   end
 
   # GET /projects/1/edit
@@ -66,6 +68,7 @@ class ProjectsController < ApplicationController
     def set_project
       @project = Project.find(params[:id])
     end
+   
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
